@@ -1,0 +1,25 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: http://127.0.0.1:80 #nacos集群地址
+      discovery:
+        namespace: 54BFBB13362242E9BDAB33C8EEA79E60_dev
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://userService
+          predicates: #路由断言
+            - Path=/user/** #路径断言，判断路径是否以user开头，如果是则路由到userService服务
+        - id: order-service
+          uri: lb://orderService
+          predicates: #多个断言是且关系
+            - Path=/order/**
+            - After=2021-03-18T17:32:58.129+08:00[Asia/Shanghai]
+          filters:
+            - AddRequestHeader=words,hello my baby
+      default-filters: #针对所有的路由
+        - AddResponseHeader=words,I'm coming
