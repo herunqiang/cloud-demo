@@ -2,18 +2,18 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/cloud_order?useSSL=false
+    url: jdbc:mysql://mysql:3306/cloud_order?useSSL=false
     username: root
-    password: root
+    password: 123
     driver-class-name: com.mysql.jdbc.Driver
   application: #注册中心服务名称
-    name: orderService
+    name: orderservice
   cloud:
     nacos:
-      server-addr: http://127.0.0.1:80 #注册中心地址
+      server-addr: http://nacos:8848 #注册中心地址
       discovery:
         cluster-name: GZ
-        namespace: 54BFBB13362242E9BDAB33C8EEA79E60_dev
+        #namespace: 54BFBB13362242E9BDAB33C8EEA79E60_dev
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
@@ -28,17 +28,17 @@ logging:
 #    service-url: #注册中心地址
 #      defaultZone: http://127.0.0.1:10086/eureka/
 #负载均衡策略
-userService: #对userService服务设置策略
+userservice: #对userservice服务设置策略
   ribbon:
     NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule #本地集群优先访问 #com.netflix.loadbalancer.ZoneAvoidanceRule
 ribbon:
   eager-load:
     enabled: true #负载均衡加载方式
-    clients: userService #对userService服务设置加载方式
+    clients: userservice #对userservice服务设置加载方式
 feign:
   client:
     config:
-      userService:
+      userservice:
         loggerLevel: FULL
   httpclient:
     enabled: true

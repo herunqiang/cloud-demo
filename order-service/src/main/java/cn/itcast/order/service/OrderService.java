@@ -23,7 +23,7 @@ public class OrderService {
         Order order = orderMapper.findById(orderId);
         // 2.根据用户id查询用户信息
         //用服务名替换ip
-        //User userInfo = restTemplate.getForObject("http://userService/user/" + order.getUserId(), User.class);
+        //User userInfo = restTemplate.getForObject("http://userservice/user/" + order.getUserId(), User.class);
         User userInfo = userClient.findUserById(order.getUserId());
         order.setUser(userInfo);
         // 4.返回
