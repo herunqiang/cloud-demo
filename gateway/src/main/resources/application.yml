@@ -5,7 +5,7 @@ spring:
     name: gateway
   cloud:
     nacos:
-      server-addr: http://nacos:8848 #nacos集群地址
+      server-addr: localhost:8848 #nacos集群地址
       discovery:
         #namespace: 54BFBB13362242E9BDAB33C8EEA79E60_dev
     gateway:
