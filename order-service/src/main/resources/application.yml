@@ -1,8 +1,8 @@
 server:
-  port: 8079
+  port: 8080
 spring:
   datasource:
-    url: jdbc:mysql://mysql:3306/cloud_order?useSSL=false
+    url: jdbc:mysql://182.61.10.220:3306/cloud_order?useSSL=false
     username: root
     password: 123
     driver-class-name: com.mysql.jdbc.Driver
@@ -10,10 +10,14 @@ spring:
     name: orderservice
   cloud:
     nacos:
-      server-addr: localhost:8848 #注册中心地址
+      server-addr: http://182.61.10.220:8848 #注册中心地址
       discovery:
         cluster-name: GZ
         #namespace: 54BFBB13362242E9BDAB33C8EEA79E60_dev
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:7777 #sentinel地址
+      web-context-unify: false #用于链路模式控制
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
