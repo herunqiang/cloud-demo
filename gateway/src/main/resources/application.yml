@@ -21,5 +21,6 @@ spring:
             - After=2021-03-18T17:32:58.129+08:00[Asia/Shanghai]
           filters:
             - AddRequestHeader=words,hello my baby
+            - AddRequestHeader=origin,gateway #用于配置授权规则
       default-filters: #针对所有的路由
         - AddResponseHeader=words,I'm coming

@@ -11,7 +11,12 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public User queryById(Long id) {
+    public User queryById(Long id) throws InterruptedException {
+        if (id == 1) {//测试慢调用熔断
+            Thread.sleep(60);
+        } else if (id == 2) {//异常熔断
+            throw new RuntimeException("测试异常熔断");
+        }
         return userMapper.findById(id);
     }
 }

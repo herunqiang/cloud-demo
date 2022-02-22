@@ -1,8 +1,7 @@
 package cn.itcast.order;
 
 import cn.itcast.fegin.clients.UserClient;
-import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.RandomRule;
+
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

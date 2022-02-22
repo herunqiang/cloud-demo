@@ -9,3 +9,4 @@ docker:
     docker run --name mysql_dev -p 3306:3306 -v /tmp/mysql/conf/hmy.cnf:/etc/mysql/conf.d/hmy.cnf -v /tmp/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7.25
 启动本地sentinel
     ：java -jar sentinel-dashboard-1.8.1.jar --server.port=7777
+    ：java -jar sentinel-dashboard.jar --server.port=7777 --nacos.addr=182.61.10.220:8848

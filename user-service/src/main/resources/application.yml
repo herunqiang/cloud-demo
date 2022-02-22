@@ -2,9 +2,9 @@ server:
   port: 8081
 spring:
   datasource:
-    url: jdbc:mysql://182.61.10.220:3306/cloud_user?useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/cloud_user?useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: 123
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
 # 改配置已配置在nacos配置管理的引导文件中
 #  application: #eureka服务名称
