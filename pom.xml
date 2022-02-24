@@ -13,6 +13,7 @@
         <module>eureka-server</module>
         <module>fegin-api</module>
         <module>gateway</module>
+        <module>funds-service</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -32,6 +33,7 @@
         <mysql.version>8.0.27</mysql.version>
         <mybatis.version>2.1.1</mybatis.version>
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
+        <seata.version>1.4.2</seata.version>
     </properties>
 
     <dependencyManagement>

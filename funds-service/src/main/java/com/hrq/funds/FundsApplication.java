@@ -1,8 +1,6 @@
-package cn.itcast.order;
+package com.hrq.funds;
 
-import cn.itcast.fegin.clients.UserBalClient;
 import cn.itcast.fegin.clients.UserClient;
-
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,13 +8,14 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-@MapperScan("cn.itcast.order.mapper")
+
+@MapperScan("com.hrq.funds.mapper")
 @SpringBootApplication
-@EnableFeignClients(clients = {UserClient.class, UserBalClient.class})//注入UserClient客户端
-public class OrderApplication {
+@EnableFeignClients(clients = {UserClient.class})//注入UserClient客户端
+public class FundsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class, args);
+        SpringApplication.run(FundsApplication.class, args);
     }
 
     /**

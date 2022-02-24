@@ -1,5 +1,6 @@
 package cn.itcast.fegin.config;
 
+import cn.itcast.fegin.clients.fallback.UserBalClientFallBackFactory;
 import cn.itcast.fegin.clients.fallback.UserClientFallBackFactory;
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
@@ -12,5 +13,9 @@ public class DefaultFeignConfiguration {
     @Bean
     public UserClientFallBackFactory userClientFallBackFactory(){
         return new UserClientFallBackFactory();
+    }
+    @Bean
+    public UserBalClientFallBackFactory userBalClientFallBackFactory(){
+        return new UserBalClientFallBackFactory();
     }
 }

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>order-service</artifactId>
+    <artifactId>funds-service</artifactId>
 
     <dependencies>
         <dependency>
@@ -93,4 +93,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

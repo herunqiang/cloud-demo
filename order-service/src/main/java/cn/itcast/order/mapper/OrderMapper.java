@@ -7,4 +7,6 @@ public interface OrderMapper {
 
     @Select("select * from tb_order where id = #{id}")
     Order findById(Long id);
+
+    int saveOrder(Order order);
 }
