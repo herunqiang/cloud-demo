@@ -12,3 +12,6 @@ docker:
     ：java -jar sentinel-dashboard.jar --server.port=7777 --nacos.addr=182.61.10.220:8848 （nacos模式）
 启动事务协调者TC
     ：‪D:\dev\seata\seata-server-1.4.2\bin\seata-server.bat
+
+坑！！！！！！！！！！！
+mybatis没有数据源代理配置，导致分布式事务失效，调整为mybatisPlus就可以了
