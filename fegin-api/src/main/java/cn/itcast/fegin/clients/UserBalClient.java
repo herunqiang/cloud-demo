@@ -9,8 +9,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @FeignClient(value = "funds-service",
-        configuration = DefaultFeignConfiguration.class,
-        fallbackFactory = UserBalClientFallBackFactory.class)
+        configuration = DefaultFeignConfiguration.class/*,
+        fallbackFactory = UserBalClientFallBackFactory.class*/)
 public interface UserBalClient {
     @PutMapping("/userBal/updateBalByUserId")
     public Integer updateBalByUserId(@Param("userBal") UserBal userBal);

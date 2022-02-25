@@ -24,3 +24,9 @@ spring:
             - AddRequestHeader=origin,gateway #用于配置授权规则
       default-filters: #针对所有的路由
         - AddResponseHeader=words,I'm coming
+mybatis-plus:
+  global-config:
+    db-config:
+      insert-strategy: not_null
+      update-strategy: not_null
+      id-type: auto

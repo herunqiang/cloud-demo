@@ -49,12 +49,9 @@ public class OrderServiceImp implements OrderService {
      */
     @Override
     @GlobalTransactional
-    @Transactional
     public String saveOrder(Order order) {
         String xid = RootContext.getXID();
         System.out.println("订单事务id："+xid);
-        //1.保存订单
-       int orderRows =  orderMapper.saveOrder(order);
 
         //2.扣余额
         try{
@@ -69,7 +66,13 @@ public class OrderServiceImp implements OrderService {
             e.printStackTrace();
             throw new RuntimeException("扣余额失败：" + e.getMessage());
         }
-
-        return "";
+        //下单
+        save(order);
+        return "下单成功";
+    }
+    @Transactional
+    public void save(Order order) {
+        //1.保存订单
+        int orderRows =  orderMapper.saveOrder(order);
     }
 }

@@ -2,10 +2,10 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/cloud_order?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://127.0.0.1:3306/cloud_order?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   application: #注册中心服务名称
     name: orderservice
   cloud:
@@ -70,4 +70,10 @@ seata:
   service:
     vgroup-mapping:
       seata-demo: GZ
-  data-source-proxy-mode: XA
+  data-source-proxy-mode: AT
+mybatis-plus:
+  global-config:
+    db-config:
+      insert-strategy: not_null
+      update-strategy: not_null
+      id-type: auto

@@ -1,7 +1,7 @@
 package com.hrq.funds.web;
 
 import cn.itcast.fegin.pojo.UserBal;
-import com.hrq.funds.service.UserBalService;
+import com.hrq.funds.service.imp.UserBalServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("userBal")
 public class UserBalController {
     @Autowired
-    private UserBalService userBalService;
+    private UserBalServiceImp userBalServiceImp;
     @PostMapping("/save")
     public String saveBal(UserBal userBal) {
         String msg = "保存成功";
@@ -17,7 +17,7 @@ public class UserBalController {
             if (userBal.getId() != null) {
                 msg = "更新成功";
             }
-            userBalService.saveBal(userBal);
+            userBalServiceImp.saveBal(userBal);
         } catch (Exception e) {
             msg = e.getMessage();
         }
@@ -26,6 +26,6 @@ public class UserBalController {
 
     @PutMapping("/updateBalByUserId")
     public Integer updateBalByUserId(@RequestBody UserBal userBal) {
-        return this.userBalService.updateBalByUserId(userBal);
+        return this.userBalServiceImp.updateBalByUserId(userBal);
     }
 }

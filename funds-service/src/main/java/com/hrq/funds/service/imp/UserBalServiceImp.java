@@ -1,16 +1,17 @@
-package com.hrq.funds.service;
+package com.hrq.funds.service.imp;
 
 import cn.itcast.fegin.clients.UserClient;
 import cn.itcast.fegin.pojo.User;
 import cn.itcast.fegin.pojo.UserBal;
 import com.hrq.funds.mapper.UserBalMapper;
+import com.hrq.funds.service.UserBalService;
 import io.seata.core.context.RootContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class UserBalService {
+public class UserBalServiceImp implements UserBalService {
     @Autowired
     private UserBalMapper userBalMapper;
     @Autowired
@@ -28,6 +29,7 @@ public class UserBalService {
         }
     }
     @Transactional
+    @Override
     public Integer updateBalByUserId(UserBal userBal) {
         String xid = RootContext.getXID();
         System.out.println("资金事务id："+xid);
