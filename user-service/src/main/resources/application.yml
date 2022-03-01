@@ -15,6 +15,13 @@ spring:
       discovery:
         cluster-name: GZ #集群名称
         #namespace: 54BFBB13362242E9BDAB33C8EEA79E60_dev
+  redis:
+    sentinel:
+      master: mymaster
+      nodes: #指定redis-sentinel集群的地址信息（通过redis-sentinel获取redis的服务信息）
+        - 182.61.10.220:27001
+        - 182.61.10.220:27002
+        - 182.61.10.220:27003
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
@@ -22,6 +29,7 @@ mybatis:
 logging:
   level:
     cn.itcast: debug
+    io.lettuce.core: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
 #eureka:
