@@ -17,4 +17,7 @@ docker:
 mybatis没有数据源代理配置，导致分布式事务失效，调整为mybatisPlus就可以了
 
 redis：
-    一键关闭redis printf '%s\n' 7001 7002 7003 | xargs -I{} -t redis-cli -p {} shutdown
+    一键启动：
+        printf '%s\n' 7001 7002 7003 8001 8002 8003 | xargs -I{} -t redis-server {}/redis.conf
+    一键关闭：
+        redis printf '%s\n' 7001 7002 7003 | xargs -I{} -t redis-cli -p {} shutdown
